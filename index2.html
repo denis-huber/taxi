@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    
+    <title>Taxi Kürzel Isarfunk</title>
+</head>
+<body>
+
+    <<div x-data="{ selectedOption: 'option1', 
+    options: [ 
+       'option1',
+       'option2', 
+       'option3'
+    ]}">
+<div class="w-80 flex pr-3">
+<p class="w-1/2">Select option:</p>
+<div class="w-1/2 inline-block relative">
+   <select name="my_option" x-model="selectedOption" class="">
+       <template x-for="option in options" :key="option">
+           <option :value="option" x-text="option"></option>
+       </template>
+   </select>
+</div>
+</div>
+     
+    Color: <span x-text="selectedOption"></span>
+</body>
+</html>
+
+
+

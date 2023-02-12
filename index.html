@@ -5,11 +5,12 @@
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
     <style>
         ul {
-            columns: 2;
-            -webkit-columns: 2;
-            -moz-columns: 2;
+            columns: 1;
+            -webkit-columns: 1;
+            -moz-columns: 1;
             font-size: 1.5em;
             padding-left: 2em;
+            list-style: none;
         }
         h1 {text-align: center;}
     </style>
@@ -18,34 +19,64 @@
 
 <body>
     <main class="container">
-    <h1>Taxi Kürzel Isarfunk</h1>
-    <div x-data="{
-        search: '',
-        items: [
-    { id: 'NK', label: 'Nicht klingen' },
-    { id: 'NR', label: 'Nicht reingen' },
-    { id: 'P', label:  'Preismerkmal' },
-    { id: 'PF', label: 'Beim Pförner melden' },
-    { id: 'PT', label: 'Personaltaxi, meist auch Gaststätten' },
-    { id: 'RA', label: 'Reklamationauftrag' },
-    { id: 'SIX', label: 'Sixtauftrag' },
-    { id: 'T', label: 'T-Booker, per Schnellwahl bestellt' },           
-    { id: 'T1', label: 'Abholung Terminal 1' },            
-    { id: 'T2', label: 'Abholung Terminal 2' },                 
-    { id: 'NK', label: 'Nicht klingen' },
-    { id: 'NN', label: 'Großraumtaxi' },
-    { id: 'TY', label: 'Toyota' },
-    { id: 'TY', label: 'Toyota' },            
-    <!-- hier mehr einfuegen] -->
-    ], 
-        get filteredItems() {
-            return this.items.filter(
-                i=> i.id.startsWith(this.search.toUpperCase())
-            )
-        }
-    }">
-        <input x-model="search" style="text-transform: uppercase;" placeholder="Suchen...">
-        <ul style="list-style: none;">
+        <h1>Taxi Kürzel Isarfunk</h1>
+        
+        <div x-data="{ selectedOption: 'taxi', 
+        options: [ 
+        'taxi',
+        'flughafen', 
+        'auto'
+        ]}">
+        <div class="w-80 flex pr-3">
+            <div class="w-1/2 inline-block relative">
+                <select name="my_option" x-model="selectedOption" class="">
+                    <template x-for="option in options" :key="option">
+                        <option :value="option" x-text="option"></option>
+                    </template>
+                </select>
+            </div>
+        </div>
+        
+        <div x-data="{
+            search: '',
+            taxi: [
+            { id: 'NN', label: 'Großraumtaxi' },
+            { id: 'NK', label: 'Nicht klingen' },
+            { id: 'NR', label: 'Nicht reingen' },
+            { id: 'P', label:  'Preismerkmal' },
+            { id: 'PF', label: 'Beim Pförner melden' },
+            { id: 'PT', label: 'Personaltaxi, meist auch Gaststätten' },
+            { id: 'RA', label: 'Reklamationauftrag' },
+            { id: 'SIX', label: 'Sixtauftrag' },
+            { id: 'T', label: 'T-Booker, per Schnellwahl bestellt' }
+            ],
+            auto: [
+            { id: 'TY', label: 'Toyota' }
+            ],
+            flughafen: [
+            { id: 'T1', label: 'Abholung Terminal 1' },            
+            { id: 'T2', label: 'Abholung Terminal 2' }
+            ],
+            get filteredItems() {
+                if(selectedOption === 'taxi') {
+                    return this.taxi.filter(
+                    i=> i.id.startsWith(this.search.toUpperCase())
+                    )
+                }
+                if(selectedOption === 'auto') {
+                    return this.auto.filter(
+                    i=> i.id.startsWith(this.search.toUpperCase())
+                    )
+                }
+                if(selectedOption === 'flughafen') {
+                    return this.flughafen.filter(
+                    i=> i.id.startsWith(this.search.toUpperCase())
+                    )
+                }
+            }
+        }">
+        <input x-model="search" style="text-transform: uppercase;" placeholder="Suchen..."><button x-on:click="search = ''">Suche löschen</button>
+        <ul>
             <template x-for="item in filteredItems" :key="item.id">
                 <li x-text="item.id + ' : ' + item.label"></li>
             </template>
