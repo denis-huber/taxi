@@ -40,22 +40,26 @@
         <div x-data="{
             search: '',
             taxi: [
-            { id: 'NN', label: 'Großraumtaxi' },
-            { id: 'NK', label: 'Nicht klingen' },
-            { id: 'NR', label: 'Nicht reingen' },
-            { id: 'P', label:  'Preismerkmal' },
-            { id: 'PF', label: 'Beim Pförner melden' },
-            { id: 'PT', label: 'Personaltaxi, meist auch Gaststätten' },
-            { id: 'RA', label: 'Reklamationauftrag' },
+            { id: 'NN ', label: 'Großraumtaxi' },
+            { id: 'NK ', label: 'Nicht klingen' },
+            { id: 'NR ', label: 'Nicht reingen' },
+            { id: 'P  ', label:  'Preismerkmal' },
+            { id: 'PF ', label: 'Beim Pförner melden' },
+            { id: 'PT ', label: 'Personaltaxi, meist auch Gaststätten' },
+            { id: 'RA ', label: 'Reklamationauftrag' },
             { id: 'SIX', label: 'Sixtauftrag' },
-            { id: 'T', label: 'T-Booker, per Schnellwahl bestellt' }
+            { id: 'T  ', label: 'T-Booker, per Schnellwahl bestellt' },
+            { id: 'TY ', label: 'Toyota' },
+            { id: 'T1 ', label: 'Abholung Terminal 1' },            
+            { id: 'T2 ', label: 'Abholung Terminal 2' }
             ],
             auto: [
-            { id: 'TY', label: 'Toyota' }
+            { id: '???', label: 'Später' }
             ],
             flughafen: [
-            { id: 'T1', label: 'Abholung Terminal 1' },            
-            { id: 'T2', label: 'Abholung Terminal 2' }
+            { id: 'Lufthansa', label: 'LH - Terminal 2' },            
+            { id: 'Air France', label: 'AF - Terminal 1 Modul D' },
+            { id: 'Turkish Airlines', label: 'TK - Terminal 1 Modul C' }      
             ],
             get filteredItems() {
                 if(selectedOption === 'taxi') {
