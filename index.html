@@ -57,7 +57,6 @@
             { id: 'VB ', label: 'Vorbestellung' },        
             { id: 'VS ', label: 'Krankenkasse ist Kostenträger' }, 
             { id: 'WU ', label: 'Kunde war bei der Bestellung schon draussen' }         
-            
             ],
             Fahrzeugmerkmale: [
             { id: '1SE ', label: 'Eine Sitzerhöhung' },
@@ -89,7 +88,7 @@
             ],
             get filteredItems() {
                 if(selectedOption === 'Isarfunk-Kürzung') {
-                    return this.taxi.filter(
+                    return this.Isarfunk-Kürzung.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
                 }
@@ -99,7 +98,7 @@
                     )
                 }
                 if(selectedOption === 'Abflug-Modul') {
-                    return this.flughafen.filter(
+                    return this.Abflug-Modul.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
                 }
