@@ -14,7 +14,7 @@
         }
         h1 {text-align: center;}
     </style>
-    <title>Taxi Kürzel Isarfunk</title>
+    <title>Taxi Kürzel Isarfunk, Abflug Moduls</title>
 </head>
 
 <body>
@@ -23,9 +23,9 @@
         
         <div x-data="{ selectedOption: 'taxi', 
         options: [ 
-        'taxi',
-        'flughafen', 
-        'auto'
+        'Isarfunk-Kürzel',
+        'Abflug-Modul', 
+        'Fahrzeugmerkmale'
         ]}">
         <div class="w-80 flex pr-3">
             <div class="w-1/2 inline-block relative">
@@ -39,7 +39,7 @@
         
         <div x-data="{
             search: '',
-            taxi: [
+            Isarfunk-Kürzel: [
             { id: 'NN ', label: 'Großraumtaxi' },
             { id: 'NK ', label: 'Nicht klingen' },
             { id: 'NR ', label: 'Nicht reingen' },
@@ -49,30 +49,56 @@
             { id: 'RA ', label: 'Reklamationauftrag' },
             { id: 'SIX', label: 'Sixtauftrag' },
             { id: 'T  ', label: 'T-Booker, per Schnellwahl bestellt' },
+            { id: 'T2 ', label: 'Abholung Terminal 2' },         
             { id: 'TY ', label: 'Toyota' },
-            { id: 'T1 ', label: 'Abholung Terminal 1' },            
-            { id: 'T2 ', label: 'Abholung Terminal 2' }
+            { id: 'T1 ', label: 'Abholung Terminal 1' }, 
+            { id: 'TA ', label: 'Taxi-Auftrag' },           
+            { id: 'UV ', label: 'Unverbindlicher Auftrag' },          
+            { id: 'VB ', label: 'Vorbestellung' },        
+            { id: 'VS ', label: 'Krankenkasse ist Kostenträger' }, 
+            { id: 'WU ', label: 'Kunde war bei der Bestellung schon draussen' },         
+            
             ],
-            auto: [
-            { id: '???', label: 'Später' }
+            Fahrzeugmerkmale: [
+            { id: '1SE ', label: 'Eine Sitzerhöhung' },
+            { id: '2SE ', label: 'Zwei Sitzerhöhungen' }, 
+            { id: '5K  ', label: '5 Koffer' }, 
+            { id: '5P  ', label: '5 Personen' }, 
+            { id: '6K  ', label: '6 Koffer' }, 
+            { id: '6P  ', label: '6 Personen' }, 
+            { id: '7K  ', label: '7 Koffer' }, 
+            { id: '7P  ', label: '7 Personen' }, 
+            { id: '8K  ', label: '8 Koffer' }, 
+            { id: '8P  ', label: '8 Personen' }, 
+            { id: '6K  ', label: '6 Koffer' }, 
+            { id: 'BMW ', label: 'Mit BMW Voucher' }, 
+            { id: 'BY  ', label: 'Babyschale 0-9 KG' }, 
+            { id: 'DB  ', label: 'Daimler Benz' },
+            { id: 'E   ', label: 'Elektrotaxi' }, 
+            { id: 'ECO ', label: 'Hybrid oder Elektroauto' }          
             ],
-            flughafen: [
+            Abflug-Modul: [
             { id: 'Lufthansa         ', label: 'LH - Terminal 2' },            
             { id: 'Air France        ', label: 'AF - Terminal 1 Modul D' },
-            { id: 'Turkish Airlines  ', label: 'TK - Terminal 1 Modul C' }      
+            { id: 'Turkish Airlines  ', label: 'TK - Terminal 1 Modul C' },
+            { id: 'Britisch Airways  ', label: 'BA - Terminal 1 Modul A' }, 
+            { id: 'Emirates          ', label: 'EK - Terminal 1 Modul C' },
+            { id: 'Etihad Airwaw     ', label: 'EY - Terminal 2' }, 
+            { id: 'KLM               ', label: 'KLM - Terminal 1 Modul D' },
+            { id: 'Pegasus           ', label: 'PC - Terminal 1 Modul B' }
             ],
             get filteredItems() {
-                if(selectedOption === 'taxi') {
+                if(selectedOption === 'Isarfunk-Kürzung') {
                     return this.taxi.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
                 }
-                if(selectedOption === 'auto') {
-                    return this.auto.filter(
+                if(selectedOption === 'Fahrzeugmerkmale') {
+                    return this.Fahrzeugmerkmale.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
                 }
-                if(selectedOption === 'flughafen') {
+                if(selectedOption === 'Abflug-Modul') {
                     return this.flughafen.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
