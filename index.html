@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 <html>
-
 <head>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
@@ -39,56 +39,55 @@
         
         <div x-data="{
             search: '',
-            Isarfunk-Kürzel: [
-            { id: 'NN ', label: 'Großraumtaxi' },
-            { id: 'NK ', label: 'Nicht klingen' },
-            { id: 'NR ', label: 'Nicht reingen' },
-            { id: 'P  ', label:  'Preismerkmal' },
-            { id: 'PF ', label: 'Beim Pförner melden' },
-            { id: 'PT ', label: 'Personaltaxi, meist auch Gaststätten' },
+            IsarfunkKürzel: [
+            { id: 'NN', label: 'Großraumtaxi' },
+            { id: 'NK', label: 'Nicht klingen' },
+            { id: 'NR', label: 'Nicht reingen' },
+            { id: 'P', label: 'Preismerkmal' },
+            { id: 'PF', label: 'Beim Pförner melden' },
+            { id: 'PT', label: 'Personaltaxi, meist auch Gaststätten' },
             { id: 'RA ', label: 'Reklamationauftrag' },
             { id: 'SIX', label: 'Sixtauftrag' },
-            { id: 'T  ', label: 'T-Booker, per Schnellwahl bestellt' },
-            { id: 'T2 ', label: 'Abholung Terminal 2' },         
-            { id: 'TY ', label: 'Toyota' },
-            { id: 'T1 ', label: 'Abholung Terminal 1' }, 
-            { id: 'TA ', label: 'Taxi-Auftrag' },           
-            { id: 'UV ', label: 'Unverbindlicher Auftrag' },          
-            { id: 'VB ', label: 'Vorbestellung' },        
-            { id: 'VS ', label: 'Krankenkasse ist Kostenträger' }, 
-            { id: 'WU ', label: 'Kunde war bei der Bestellung schon draussen' }         
+            { id: 'T', label: 'T-Booker, per Schnellwahl bestellt' },
+            { id: 'T2', label: 'Abholung Terminal 2' },         
+            { id: 'TY', label: 'Toyota' },
+            { id: 'T1', label: 'Abholung Terminal 1' }, 
+            { id: 'TA', label: 'Taxi-Auftrag' },           
+            { id: 'UV', label: 'Unverbindlicher Auftrag' },          
+            { id: 'VB', label: 'Vorbestellung' },        
+            { id: 'VS', label: 'Krankenkasse ist Kostenträger' }, 
+            { id: 'WU', label: 'Kunde war bei der Bestellung schon draussen' }         
             ],
             Fahrzeugmerkmale: [
-            { id: '1SE ', label: 'Eine Sitzerhöhung' },
-            { id: '2SE ', label: 'Zwei Sitzerhöhungen' }, 
-            { id: '5K  ', label: '5 Koffer' }, 
-            { id: '5P  ', label: '5 Personen' }, 
-            { id: '6K  ', label: '6 Koffer' }, 
-            { id: '6P  ', label: '6 Personen' }, 
-            { id: '7K  ', label: '7 Koffer' }, 
-            { id: '7P  ', label: '7 Personen' }, 
-            { id: '8K  ', label: '8 Koffer' }, 
-            { id: '8P  ', label: '8 Personen' }, 
-            { id: '6K  ', label: '6 Koffer' }, 
-            { id: 'BMW ', label: 'Mit BMW Voucher' }, 
-            { id: 'BY  ', label: 'Babyschale 0-9 KG' }, 
-            { id: 'DB  ', label: 'Daimler Benz' },
-            { id: 'E   ', label: 'Elektrotaxi' }, 
-            { id: 'ECO ', label: 'Hybrid oder Elektroauto' }          
+            { id: '1SE', label: 'Eine Sitzerhöhung' },
+            { id: '2SE', label: 'Zwei Sitzerhöhungen' }, 
+            { id: '5K', label: '5 Koffer' }, 
+            { id: '5P', label: '5 Personen' }, 
+            { id: '6K', label: '6 Koffer' }, 
+            { id: '6P', label: '6 Personen' }, 
+            { id: '7K', label: '7 Koffer' }, 
+            { id: '7P', label: '7 Personen' }, 
+            { id: '8K', label: '8 Koffer' }, 
+            { id: '8P', label: '8 Personen' }, 
+            { id: 'BMW', label: 'Mit BMW Voucher' }, 
+            { id: 'BY', label: 'Babyschale 0-9 KG' }, 
+            { id: 'DB', label: 'Daimler Benz' },
+            { id: 'E', label: 'Elektrotaxi' }, 
+            { id: 'ECO', label: 'Hybrid oder Elektroauto' }          
             ],
-            Abflug-Modul: [
-            { id: 'Lufthansa         ', label: 'LH - Terminal 2' },            
-            { id: 'Air France        ', label: 'AF - Terminal 1 Modul D' },
-            { id: 'Turkish Airlines  ', label: 'TK - Terminal 1 Modul C' },
-            { id: 'Britisch Airways  ', label: 'BA - Terminal 1 Modul A' }, 
-            { id: 'Emirates          ', label: 'EK - Terminal 1 Modul C' },
-            { id: 'Etihad Airwaw     ', label: 'EY - Terminal 2' }, 
-            { id: 'KLM               ', label: 'KLM - Terminal 1 Modul D' },
-            { id: 'Pegasus           ', label: 'PC - Terminal 1 Modul B' }
+            AbflugModul: [
+            { id: 'Lufthansa', label: 'LH - Terminal 2' },            
+            { id: 'Air France', label: 'AF - Terminal 1 Modul D' },
+            { id: 'Turkish Airlines', label: 'TK - Terminal 1 Modul C' },
+            { id: 'Britisch Airways', label: 'BA - Terminal 1 Modul A' }, 
+            { id: 'Emirates', label: 'EK - Terminal 1 Modul C' },
+            { id: 'Etihad Airwaw', label: 'EY - Terminal 2' }, 
+            { id: 'KLM', label: 'KLM - Terminal 1 Modul D' },
+            { id: 'Pegasus', label: 'PC - Terminal 1 Modul B' }
             ],
             get filteredItems() {
-                if(selectedOption === 'Isarfunk-Kürzung') {
-                    return this.Isarfunk-Kürzung.filter(
+                if(selectedOption === 'Isarfunk-Kürzel') {
+                    return this.IsarfunkKürzel.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
                 }
@@ -98,7 +97,7 @@
                     )
                 }
                 if(selectedOption === 'Abflug-Modul') {
-                    return this.Abflug-Modul.filter(
+                    return this.AbflugModul.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
                 }
