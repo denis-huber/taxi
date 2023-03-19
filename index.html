@@ -21,21 +21,15 @@
     <main class="container">
         <h1>Taxi Kürzel Isarfunk</h1>
         
-        <div x-data="{ selectedOption: 'Isarfunk-Kürzel', 
-        options: [ 
-        'Isarfunk-Kürzel',
-        'Abflug-Modul', 
-        'Fahrzeugmerkmale'
-        ]}">
-        <div class="w-80 flex pr-3">
-            <div class="w-1/2 inline-block relative">
-                <select name="my_option" x-model="selectedOption" class="">
-                    <template x-for="option in options" :key="option">
-                        <option :value="option" x-text="option"></option>
-                    </template>
-                </select>
-            </div>
-        </div>
+
+        <div x-data="{lists: [{id: 1, name: 'Isarfunk-Kürzel'}, {id: 2, name: 'Abflug-Modul'}, {id: 3, name: 'Fahrzeugmerkmale'}], selectedOption: '1'}">
+            <template x-for="list in lists" :key="list.id">
+              <div>
+                <input x-model="selectedOption" type="radio" :value="list.id.toString()" :id="list.name">
+                <label :for="list.name" x-text="list.name"></label>
+              </div>
+            </template>
+        </br>
         
         <div x-data="{
             search: '',
@@ -86,17 +80,17 @@
             { id: 'Pegasus', label: 'PC - Terminal 1 Modul B' }
             ],
             get filteredItems() {
-                if(selectedOption === 'Isarfunk-Kürzel') {
+                if(selectedOption === '1') {
                     return this.IsarfunkKürzel.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
                 }
-                if(selectedOption === 'Fahrzeugmerkmale') {
+                if(selectedOption === '2') {
                     return this.Fahrzeugmerkmale.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
                 }
-                if(selectedOption === 'Abflug-Modul') {
+                if(selectedOption === '3') {
                     return this.AbflugModul.filter(
                     i=> i.id.startsWith(this.search.toUpperCase())
                     )
