@@ -22,7 +22,7 @@
         <h1>Taxi Kürzel Isarfunk</h1>
         
 
-        <div x-data="{lists: [{id: 1, name: 'Isarfunk-Kürzel'}, {id: 2, name: 'Abflug-Modul'}, {id: 3, name: 'Fahrzeugmerkmale'}], selectedOption: '1'}">
+        <div x-data="{lists: [{id: 1, name: 'Isarfunk-Kürzel'}, {id: 2, name: 'Fahrzeugmerkmale'}, {id: 3, name: 'Abflug-Modul'}], selectedOption: '1'}">
             <template x-for="list in lists" :key="list.id">
               <div>
                 <input x-model="selectedOption" type="radio" :value="list.id.toString()" :id="list.name">
